@@ -3,7 +3,7 @@ import streamlit as st
 def login_screen():
     st.title("Please Login.")
     button_with_image = """
-            <button class="gsi-material-button" onclick="<py-script>st.login</py-script>" style="background-color: rgba(128, 128, 128, 0.5); border: none; border-radius: 8px; padding: 10px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+            <button class="gsi-material-button" onclick="" style="background-color: rgba(128, 128, 128, 0.5); border: none; border-radius: 8px; padding: 10px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
               <div class="gsi-material-button-icon">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: block; width: 24px; height: 24px;">
                   <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
@@ -16,7 +16,6 @@ def login_screen():
               <span class="gsi-material-button-contents" style="font-size: 16px;">Login with Google</span>
             </button>
         """
-    st.button(label="login", on_click=st.login)
     st.markdown(button_with_image, unsafe_allow_html=True)
 grade = 0
 user = st.experimental_user
