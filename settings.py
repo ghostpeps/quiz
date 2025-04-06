@@ -13,7 +13,6 @@ def login_screen():
         }
         .image-button:hover {
             background-color: rgba(92, 126, 228, 0.25);
-            color: black;
             border: 2px solid #037bfc;
         }
         .image-button img {
