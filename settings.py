@@ -1,11 +1,28 @@
 import streamlit as st
 
-from pathlib import Path
-
 def login_screen():
     st.title("Please Login.")
     st.button("Log in with Google", on_click=st.login, icon=":material/login:")
-    st.html(Path("./button.html"))
+    # Custom HTML and CSS for the button with an image
+    button_with_image = """
+        <style>
+        .image-button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .image-button img {
+            width: 50px; /* Adjust the size of the image */
+            height: auto;
+        }
+        </style>
+        <button class="image-button">
+            <img src="https://via.placeholder.com/50" alt="Button Icon">
+        </button>
+    """
+    
+    # Render the button with an image
+    st.markdown(button_with_image, unsafe_allow_html=True)
 user = st.experimental_user
 if not user.is_logged_in:
     login_screen()
