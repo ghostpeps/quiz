@@ -40,5 +40,6 @@ else:
     elif picture is None:
         pic = "profile-pic.png"
     st.write(f"Username: {user}")
+    grade = st.radio(label="Select your Grade Level:", options=[r"1$^st$ - 3$^rd$", r"4$^th$ - 5$^th$", r"6$^th$ - 8$^th$", r"9$^th$ & 10$^th$", r"11$^th$ & 12$^th$"], index=None)
     st.button("Log out", on_click=st.logout, icon=":material/logout:")
     logo = st.logo(image=pic, size="large", link="https://quizes.streamlit.app/settings", icon_image=pic)
