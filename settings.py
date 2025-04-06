@@ -8,3 +8,4 @@ if not st.experimental_user.is_logged_in:
     login_screen()
 else:
     st.experimental_user
+st.button("Log out", on_click=st.logout)
