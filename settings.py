@@ -13,6 +13,7 @@ else:
     st.write("Profile Picture:")
     st.image(image=pic, width=218)
     button = st.button(label="Change Profile Picture", type="tertiary")
+    picture = None
     if button:
         picture = st.file_uploader(label="", type=["jpg", "jpeg", "png"], label_visibility="collapsed")
     if picture is not None:
