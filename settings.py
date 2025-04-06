@@ -21,7 +21,7 @@ def login_screen():
         }
         </style>
         <button class="image-button">
-            <img src="google.png" alt="Login with Google">
+            <img src="google.png" alt="    Login with Google">
         </button>
     """
     st.markdown(button_with_image, unsafe_allow_html=True)
