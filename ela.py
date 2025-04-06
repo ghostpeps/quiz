@@ -6,15 +6,15 @@ import numpy as np
 
 import random
 
-import sqlite3
+from settings.py import user
 
-profile = "hi"
-if profile is not None:
+def login_screen():
+    st.title("Go to Settings to Login")
+    settings = st.button("Go to Settings", icon=":material/settings:")
+    if settings:
+        st.switch_page("settings.py")
+if user.is_logged_in:
     st.title("ELA")
-    connection = sqlite3.connect("test.db")
-    cursor = connection.cursor()
-    cursor.execute("CREATE TABLE IF NOT EXISTS profile (score LIST[INTEGER], day LIST[INTEGER])")
-    connection.commit()
     hours = 0
     mins = 0
     secs = 0
@@ -25,7 +25,7 @@ if profile is not None:
     num = 0
     qlist = []
     score = dict()
-    percentage = [5, 6, 3]
+    score = 0
     question_bank = [
                 [
             "He **acquiesced** in his decision. What is the definition of the bolded word?",
@@ -37,7 +37,7 @@ if profile is not None:
                 ["""
             "The Last Letter"
 
-                Eliza had spent the last twenty years avoiding the cedar chest that rested in the corner of her attic.
+                Eliza had spent the last twenty years avoiding the cedar chest in the corner of her attic.
             Within it lay letters—dozens of them—from her younger sister, Clara.
             They had parted ways long ago after an argument so fierce it turned love into silence.
             Eliza had never opened Clara's letters, convinced that the words within were filled with anger and blame.
@@ -56,13 +56,14 @@ if profile is not None:
             "good vs. evil"
             ]
     ]
-    answer_bank = {"1": 1, "2": 2}
-    count = [1, 2, 3]
+    answer_bank = {"0": 1, "1": 2}
+    count = []
+    axes_three = ["Your Score"]
     chart_data = pd.DataFrame(
         {
             "Days": count,
-            "Score (percentage)": [100, 30, 50],
-            "Score": np.random.choice(["Your Score", 100, 30, 50], size=len(count)).tolist(),
+            "Score (percentage)": [x for x in axes_three if x != "Your Score"],
+            "Score": np.random.choice(axes_three, size=len(count)).tolist(),
         }
     )
     with col1:
@@ -93,12 +94,12 @@ if profile is not None:
                 submit = st.form_submit_button(label="Submit", icon=":material/check:", disabled=False)
         if submit:
             count.append(count[-1]+1)
-            pass
-        cursor.execute(f"INSERT INTO profile VALUES ({percentage}, {count})")
-        connection.commit()
-        connection.close()
-elif profile is None:
-    st.subheader("Sign in to take quizes")
-    sign_in = st.button(label="Sign in", icon=":material/login:")
-    if sign_in:
-        st.switch_page("settings.py")
+            for key in qa:
+                if key in answer_bank.keys():
+                    if qa[key] == answer_bank[key]:
+                        score = score + 1
+            score = score/20
+            score = score * 100
+            axes_three.append(score)
+elif not user.is_logged_in:
+    login_screen()
