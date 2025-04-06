@@ -3,7 +3,8 @@ import streamlit as st
 def login_screen():
     st.title("Please Login.")
     st.button("Log in with Google", on_click=st.login, icon=":material/login:")
-if not st.experimental_user.is_logged_in:
+user = st.experimental_user
+if not user.is_logged_in:
     login_screen()
 else:
     st.title("Settings")
@@ -22,6 +23,6 @@ else:
         logo = st.logo(image=pic, size="large", link="https://quizes.streamlit.app/settings", icon_image=pic)
     elif picture is None:
         pic = "profile-pic.png"
-    st.write(f"Username: {st.experimental_user}")
+    st.write(f"Username: {user}")
     st.button("Log out", on_click=st.logout, icon=":material/logout:")
     logo = st.logo(image=pic, size="large", link="https://quizes.streamlit.app/settings", icon_image=pic)
