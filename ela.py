@@ -6,7 +6,7 @@ import numpy as np
 
 import random
 
-from settings import user
+from settings import user, grade
 
 def login_screen():
     st.title("Go to Settings to Login")
