@@ -26,6 +26,7 @@ if user.is_logged_in:
     score = dict()
     score = 0
     if grade == 1:
+        pass
         question_bank = [
                     [
                 "",
@@ -76,6 +77,7 @@ if user.is_logged_in:
         ]
         answer_bank = {"0": 1, "1": 2}
     elif grade == 3:
+        pass
         question_bank = [
                     [
                 "",
@@ -94,6 +96,7 @@ if user.is_logged_in:
         ]
         answer_bank = {"": , "": }
     elif grade == 4:
+        pass
         question_bank = [
                     [
                 "",
@@ -112,6 +115,7 @@ if user.is_logged_in:
         ]
         answer_bank = {"": , "": }
     elif grade == 5:
+        pass
         question_bank = [
                     [
                 "",
