@@ -15,3 +15,4 @@ else:
     st.button(label="Change Profile Picture", type="tertiary")
     st.write(f"Username: {st.experimental_user}")
     st.button("Log out", on_click=st.logout, icon=":material/logout:")
+st.logo(image=pic, size="large", link="https://quizes.streamlit.app/settings", icon_image=pic)
