@@ -25,37 +25,110 @@ if user.is_logged_in:
     qlist = []
     score = dict()
     score = 0
-    question_bank = [
-                [
-            "He **acquiesced** in his decision. What is the definition of the bolded word?",
-            "accepted something reluctantly but without protesting",
-            "thought about something",
-            "to be happy about a choice",
-            "None of the above"
-            ],
-                ["""
-            "The Last Letter"
-
-                Eliza had spent the last twenty years avoiding the cedar chest in the corner of her attic.
-            Within it lay letters—dozens of them—from her younger sister, Clara.
-            They had parted ways long ago after an argument so fierce it turned love into silence.
-            Eliza had never opened Clara's letters, convinced that the words within were filled with anger and blame.
-            But now, as years stretched into decades and regret tightened its grip, she found herself drawn to the chest.
-            With trembling hands, she lifted the lid and unfolded a yellowed envelope.
-            "Eliza," the letter began, "I miss you. I'm sorry for everything."
-            The words tumbled out like a flood, and by the last page, Eliza sat sobbing on the attic floor, overwhelmed by a love that had endured even when she thought it had been lost.
-            In that moment, forgiveness felt like sunlight breaking through an old, stubborn storm.
-            She picked up her pen and began to write a letter of her own—one she should have written long ago.
-                
-            What is the theme?
-            """,
-            "hope",
-            "forgiveness",
-            "betrayal",
-            "good vs. evil"
-            ]
-    ]
-    answer_bank = {"0": 1, "1": 2}
+    if grade == 1:
+        question_bank = [
+                    [
+                "",
+                "",
+                "",
+                "",
+                ""
+                ],
+                    ["""
+                """,
+                "",
+                "",
+                "",
+                ""
+                ]
+        ]
+        answer_bank = {"": , "": }
+    elif grade == 2:
+        question_bank = [
+                    [
+                "He **acquiesced** in his decision. What is the definition of the bolded word?",
+                "accepted something reluctantly but without protesting",
+                "thought about something",
+                "to be happy about a choice",
+                "None of the above"
+                ],
+                    ["""
+                "The Last Letter"
+    
+                    Eliza had spent the last twenty years avoiding the cedar chest in the corner of her attic.
+                Within it lay letters—dozens of them—from her younger sister, Clara.
+                They had parted ways long ago after an argument so fierce it turned love into silence.
+                Eliza had never opened Clara's letters, convinced that the words within were filled with anger and blame.
+                But now, as years stretched into decades and regret tightened, she found herself drawn to the chest.
+                With trembling hands, she lifted the lid and unfolded a yellowed envelope.
+                "Eliza," the letter began, "I miss you. I'm sorry for everything."
+                The words tumbled like a flood, and by the last page, Eliza sat sobbing on the attic floor, overwhelmed by a love that had endured even when she thought it had been lost.
+                In that moment, forgiveness felt like sunlight breaking through an old, stubborn storm.
+                She picked up her pen and began to write a letter of her own—one she should have written long ago.
+                    
+                What is the theme?
+                """,
+                "hope",
+                "forgiveness",
+                "betrayal",
+                "good vs. evil"
+                ]
+        ]
+        answer_bank = {"0": 1, "1": 2}
+    elif grade == 3:
+        question_bank = [
+                    [
+                "",
+                "",
+                "",
+                "",
+                ""
+                ],
+                    ["""
+                """,
+                "",
+                "",
+                "",
+                ""
+                ]
+        ]
+        answer_bank = {"": , "": }
+    elif grade == 4:
+        question_bank = [
+                    [
+                "",
+                "",
+                "",
+                "",
+                ""
+                ],
+                    ["""
+                """,
+                "",
+                "",
+                "",
+                ""
+                ]
+        ]
+        answer_bank = {"": , "": }
+    elif grade == 5:
+        question_bank = [
+                    [
+                "",
+                "",
+                "",
+                "",
+                ""
+                ],
+                    ["""
+                """,
+                "",
+                "",
+                "",
+                ""
+                ]
+        ]
+        answer_bank = {"": , "": }
     count = []
     axes_three = ["Your Score"]
     chart_data = pd.DataFrame(
@@ -94,9 +167,8 @@ if user.is_logged_in:
         if submit:
             count.append(count[-1]+1)
             for key in qa:
-                if key in answer_bank.keys():
-                    if qa[key] == answer_bank[key]:
-                        score = score + 1
+                if qa[key] == answer_bank[key]:
+                    score = score + 1
             score = score/20
             score = score * 100
             axes_three.append(score)
