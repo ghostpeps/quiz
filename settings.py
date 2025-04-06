@@ -8,11 +8,12 @@ def login_screen():
         <style>
         .image-button {
             background-color: transparent;
-            border: none;
+            border: 2px solid #037bfc;
             cursor: pointer;
+            border-radius: 12px;
         }
         .image-button img {
-            width: 50px; /* Adjust the size of the image */
+            width: auto; /* Adjust the size of the image */
             height: auto;
         }
         </style>
