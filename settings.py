@@ -3,7 +3,6 @@ import streamlit as st
 def login_screen():
     st.title("Please Login.")
     st.button("Log in with Google", on_click=st.login, icon=":material/login:")
-    # Custom HTML and CSS for the button with an image
     button_with_image = """
         <style>
         .image-button {
@@ -12,17 +11,20 @@ def login_screen():
             cursor: pointer;
             border-radius: 12px;
         }
+        .image-button:hover {
+            background-color: rgba(92, 126, 228, 0.25);
+            color: black;
+            border: 2px solid #037bfc;
+        }
         .image-button img {
-            width: auto; /* Adjust the size of the image */
+            width: auto;
             height: auto;
         }
         </style>
         <button class="image-button">
-            <img src="google.png" alt="Button Icon">
+            <img src="google.png" alt="Login with Google">
         </button>
     """
-    
-    # Render the button with an image
     st.markdown(button_with_image, unsafe_allow_html=True)
 user = st.experimental_user
 if not user.is_logged_in:
