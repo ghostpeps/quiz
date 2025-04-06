@@ -17,10 +17,9 @@ else:
     if button:
         picture = st.file_uploader(label="", type=["jpg", "jpeg", "png"], label_visibility="collapsed")
     if picture is not None:
-        pic = picture
+        pic = picture.name
         image = st.image(image=pic, width=218)
         logo = st.logo(image=pic, size="large", link="https://quizes.streamlit.app/settings", icon_image=pic)
-        st.write(picture.name)
     elif picture is None:
         pic = "profile-pic.png"
     st.write(f"Username: {st.experimental_user}")
