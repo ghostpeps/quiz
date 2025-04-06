@@ -1,8 +1,11 @@
 import streamlit as st
 
+from pathlib import Path
+
 def login_screen():
     st.title("Please Login.")
     st.button("Log in with Google", on_click=st.login, icon=":material/login:")
+    st.html(Path("./quiz/button.html"))
 user = st.experimental_user
 if not user.is_logged_in:
     login_screen()
