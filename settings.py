@@ -2,7 +2,6 @@ import streamlit as st
 
 def login_screen():
     st.title("Please Login.")
-    st.button("Log in with Google", on_click=st.login, icon=":material/login:")
     button_with_image = """
             <button class="gsi-material-button" style="background-color: rgba(128, 128, 128, 0.5); border: none; border-radius: 8px; padding: 10px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
               <div class="gsi-material-button-icon">
@@ -17,7 +16,7 @@ def login_screen():
               <span class="gsi-material-button-contents" style="font-size: 16px;">Login with Google</span>
             </button>
         """
-    st.markdown(button_with_image, unsafe_allow_html=True)
+    st.markdown(button_with_image, on_click=st.login unsafe_allow_html=True)
 user = st.experimental_user
 if not user.is_logged_in:
     login_screen()
