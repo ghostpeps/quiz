@@ -20,6 +20,7 @@ else:
         pic = picture
         image = st.image(image=pic, width=218)
         logo = st.logo(image=pic, size="large", link="https://quizes.streamlit.app/settings", icon_image=pic)
+        st.write(picture.name)
     elif picture is None:
         pic = "profile-pic.png"
     st.write(f"Username: {st.experimental_user}")
