@@ -12,6 +12,6 @@ else:
         pic = "profile-pic.png"
     st.write("Profile Picture:")
     st.image(image=pic, width=218)
-    st.button(label="Change Profile Picture", type="tertiary", icon=":material​/person:")
+    st.button(label="Change Profile Picture", type="tertiary", icon=":material​/thumb_up:")
     st.write(f"Username: {st.experimental_user}")
     st.button("Log out", on_click=st.logout, icon=":material/logout:")
