@@ -16,8 +16,8 @@ def login_screen():
                 <path fill="none" d="M0 0h48v48H0z"></path>
               </svg>
             </div>
-            <span class="gsi-material-button-contents">Continue with Google</span>
-            <span style="display: none;">Continue with Google</span>
+            <span class="gsi-material-button-contents">Login with Google</span>
+            <span style="display: none;">Login with Google</span>
           </div>
         </button>
     """
