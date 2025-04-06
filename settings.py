@@ -17,6 +17,7 @@ def login_screen():
             </button>
         """
     st.markdown(button_with_image, unsafe_allow_html=True)
+grade = None
 user = st.experimental_user
 if not user.is_logged_in:
     login_screen()
