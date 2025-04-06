@@ -19,7 +19,6 @@ if user.is_logged_in:
     mins = 0
     secs = 0
     st.write(f"You have {hours} hours, {mins} minutes, and {secs} seconds until you can take the test again.")
-    st.write(connection.total_changes)
     col1, col2 = st.columns(2)
     qa = dict()
     num = 0
