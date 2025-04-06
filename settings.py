@@ -14,7 +14,7 @@ else:
     st.image(image=pic, width=218)
     button = st.button(label="Change Profile Picture", type="tertiary")
     if button:
-        pic = st.file_uploader(label="Drag or Select an image.", type=["jpg", "jpeg", "png"])
+        pic = st.file_uploader(label="", type=["jpg", "jpeg", "png"], label_visibility="collapsed")
     st.write(f"Username: {st.experimental_user}")
     st.button("Log out", on_click=st.logout, icon=":material/logout:")
 st.logo(image=pic, size="large", link="https://quizes.streamlit.app/settings", icon_image=pic)
