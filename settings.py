@@ -9,9 +9,9 @@ if not st.experimental_user.is_logged_in:
 else:
     st.title("Settings")
     if pic is None:
-        pic = ""
+        pic = "profile-pic.png"
     st.write("Profile Picture:")
     st.image(image=pic, width=218)
-    st.button(label="Change Profile Picture")
+    st.button(label="Change Profile Picture", type="tertiary", icon=":material/acount_circle:")
     st.write(f"Username: {st.experimental_user}")
     st.button("Log out", on_click=st.logout, icon=":material/logout:")
