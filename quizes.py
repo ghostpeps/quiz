@@ -1,11 +1,23 @@
 import streamlit as st
 
-def quizes():
-    co1l, co2l = st.columns([0.8, 0.2])
+from settings import user
+
+from ela import days
+
+def quizzes():
+    co1l, co2l, co3l = st.columns([0.5, 0.3, 0.2])
     with co1l:
         st.title("Quizes")
-    with co2l:
+    with co3l:
         settings = st.button(label="", type="tertiary", icon=":material/settings:")
+    with co2l:
+        if global user.is_logged_in:
+            if days == 0:
+                st.markdown("streak-off.png :gray[0]")
+            elif days > 0:
+                st.markdown(f"streak-on.png :orange[{days}]")
+        elif global user.is_logged_in:
+            st.write("")
     col1, col2, col3 = st.columns(3)
     col4, col5, col6 = st.columns(3)
     col7, col8, col9 = st.columns(3)
