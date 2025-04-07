@@ -25,6 +25,7 @@ if user.is_logged_in:
     qlist = []
     score = dict()
     score = 0
+    days = 0
     if grade == 1:
         question_bank = [
                     [
@@ -168,9 +169,10 @@ if user.is_logged_in:
             count.append(count[-1]+1)
             for key in qa:
                 if qa[key] == answer_bank[key]:
-                    score = score + 1
+                    score += 1
             score = score/20
             score = score * 100
             axes_three.append(score)
+            days += 1
 elif not user.is_logged_in:
     login_screen()
