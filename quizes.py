@@ -4,6 +4,7 @@ from settings import user
 
 from ela import days
 
+user = user
 def quizzes():
     user = global user
     co1l, co2l, co3l = st.columns([0.5, 0.3, 0.2])
