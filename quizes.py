@@ -4,9 +4,7 @@ from settings import user
 
 from ela import days
 
-user = user
-def quizzes():
-    user = global user
+def quizzes(user):
     co1l, co2l, co3l = st.columns([0.5, 0.3, 0.2])
     with co1l:
         st.title("Quizes")
@@ -58,7 +56,7 @@ def quizzes():
     if settings:
         st.switch_page("settings.py")
 pages = [
-    st.Page(page=quizes, title="Quizes", icon=":material/quiz:"),
+    st.Page(page=quizes(user), title="Quizes", icon=":material/quiz:"),
     st.Page(page="ela.py", title="ELA", icon=":material/language_us:"),
     st.Page(page="math.py", title="Math", icon=":material/calculate:"),
     st.Page(page="languages.py", title="Languages", icon=":material/translate:"),
