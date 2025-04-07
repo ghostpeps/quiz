@@ -28,7 +28,7 @@ if user.is_logged_in:
         time_remaining = midnight - now
         hours = time_remaining.seconds // 3600
         minutes = (time_remaining.seconds % 3600) // 60
-            return hours, minutes
+        return hours, minutes
     hours, minutes = get_time_until_midnight()
     if test_taken == True:
         st.write(f"You have {hours} hours and {minutes} minutes until you can take the test again.")
