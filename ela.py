@@ -8,6 +8,8 @@ import random
 
 from settings import grade, user
 
+from datetime import datetime, timedelta
+
 def login_screen():
     st.title("Go to Settings to Login")
     settings = st.button("Go to Settings", icon=":material/settings:")
@@ -15,10 +17,25 @@ def login_screen():
         st.switch_page("settings.py")
 if user.is_logged_in:
     st.title("ELA")
-    hours = 0
-    mins = 0
-    secs = 0
-    st.write(f"You have {hours} hours, {mins} minutes, and {secs} seconds until you can take the test again.")
+    test_taken = False
+    def get_time_until_midnight():
+        now = datetime.now()
+        midnight = now.replace(hour=23, minute=59, second=59, microsecond=999999)
+        if now > midnight:
+            midnight += timedelta(days=1)
+        if now == midnight:
+            global test_taken = False
+        time_remaining = midnight - now
+        hours = time_remaining.seconds // 3600
+        minutes = (time_remaining.seconds % 3600) // 60
+        return hours, minutes
+    hours, minutes = get_time_until_midnight()
+    if test_taken == True:
+        st.write(f"You have {hours} hours and {minutes} minutes until you can take the test again.")
+    elif test_taken == False:
+        st.write("")
+    time.sleep(1)
+    st.experimental_rerun()
     col1, col2 = st.columns(2)
     qa = dict()
     num = 0
@@ -174,5 +191,6 @@ if user.is_logged_in:
             score = score * 100
             axes_three.append(score)
             days += 1
+            test_taken = True
 elif not user.is_logged_in:
     login_screen()
